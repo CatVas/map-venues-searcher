@@ -1,0 +1,28 @@
+<template name="Queries">
+	<section class="queries">
+		<table class="table table-striped t-1">
+			{{#each query}}
+			<tr>
+				<td>
+					<span class="t-1-out glyphicon glyphicon-trash"></span>
+				</td>
+				<td class="t-1-query">{{this.query}}</td>
+				<td>{{latitude}}</td>
+				<td>{{longtitude}}</td>
+				<td>{{radius}}</td>
+				<td>{{this.date}}</td>
+			</tr>
+			{{/each}}
+			<!--tr>
+				<td>
+					<span class="t-1-out glyphicon glyphicon-trash"></span>
+				</td>
+				<td class="t-1-query">Query</td>
+				<td>12.345678</td>
+				<td>123.456789</td>
+				<td>5 km</td>
+				<td>Sep 23, 13:09</td>
+			</tr-->
+		</table>
+	</section>
+</template>

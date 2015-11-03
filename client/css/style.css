@@ -28,10 +28,19 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	font: 62.5% Arial, Helvetica, sans-serif;
+	line-height: 1.2;
+}
+html, body {
+	background: #fff;
+	height: 100%;
 }
 ol, ul {
 	list-style: none;
+}
+p, li {
+	font-size: 1.4em;
+	line-height: 1.4;
 }
 blockquote, q {
 	quotes: none;
@@ -41,7 +50,112 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*--- Tables ---*/
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+td, th {
+	font-size: 1.4em;
+	padding: 0.5em;
+}
+
+.t-1 tr:nth-child(odd) {
+	background: #eee;
+}
+.t-1 td {
+	text-align: right;
+}
+.t-1 .t-1-query {
+	font-weight: bold;
+	text-align: left;
+}
+.t-1 .t-1-out {
+	cursor: pointer;
+}
+.t-1.mod-1 td {
+	text-align: left;
+}
+.t-1.mod-1 td.text-right {
+	text-align: right;
+}
+.t-1.mod-1 th {
+	background: #ccc;
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 0.2em 0.5em;
+}
+
+/*--- Footer ---*/
+.footer {
+	padding: 0.8em 0;
+}
+
+/*--- Header ---*/
+.header {
+	height: 70px;
+	margin-bottom: 2em;
+}
+.header h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin:0.7em 0 0 70px;
+	text-align: center;
+}
+.logo {
+	background: url('/img/logo.png') no-repeat;
+	float: left;
+	height: 50px;
+	margin: 20px 0 0 0;
+	width: 50px;
+}
+
+/*--- Queries ---*/
+.queries {
+	margin:0 0 2em;
+}
+
+/*--- Map ---*/
+.map {
+	margin: 0 0 2em;
+}
+.map .f-1 {
+	margin: 0 0 1em;
+}
+
+/*--- Venues ---*/
+.venues h1 {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0 120px 0 0;
+	padding: 7px 0 0;
+}
+.venues .venues-hd {
+	margin: 0 0 1em;
+}
+.venues .venues-hd:after {
+	clear: both;
+	content: '.';
+	display: block;
+	height: 0;
+	visibility: hidden;
+	width: 0;
+}
+.venues .btn {
+	float: right;
+}
+
+/*--- Wrap ---*/
+.app {
+	border: 1px solid #000;
+	margin: 1em auto;
+	width: 700px;
+}
+.wrap {
+	padding: 1px 0;
 }
