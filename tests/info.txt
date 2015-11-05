@@ -10,10 +10,8 @@ Venues
 --- DataBases ---
 users: [
 	{
-		_id: number,
-		userId: number,
-		userName: 'string',
-		password: 'string',
+		// fields by account package,
+		
 		isAdmin: boolean,
 		queries: [
 			{
