@@ -11,7 +11,7 @@ Venues
 users: [
 	{
 		// fields by account package,
-		
+
 		isAdmin: boolean,
 		queries: [
 			{
@@ -26,7 +26,7 @@ users: [
 	}
 ]
 
-adminInterface: {
+tplInterface: {
 	footerText: 'string' // text with HTML tags
 	hd: 'Header h1',
 	searchPlaceholder: 'Type a venue name here',
