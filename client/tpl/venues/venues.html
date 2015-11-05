@@ -1,0 +1,26 @@
+<template name="Venues">
+	<section class="venues">
+		<header class="venues-hd">
+			<button class="btn btn-default">{{btnText}}</button>
+			<h1>{{hdText}}</h1>
+		</header>
+
+		<table class="t-1 mod-1 table">
+			<tr>
+				{{#each name in colNames}}
+					<th class="{{#if (isTextRight @index)}}text-right{{/if}}">{{name}}</th>
+				{{/each}}
+			</tr>
+
+			{{#each venues}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{city}}</td>
+					<td>{{address}}</td>
+					<td class="text-right">{{latitude}}</td>
+					<td class="text-right">{{longtitude}}</td>
+				</tr>
+			{{/each}}
+		</table>
+	</section>
+</template>

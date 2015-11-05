@@ -1,0 +1,38 @@
+--- Templates ---
+Footer
+Header
+Map
+MapSearch
+SearchForm
+Queries
+Venues
+
+--- DataBases ---
+users: [
+	{
+		_id: number,
+		userId: number,
+		userName: 'string',
+		password: 'string',
+		isAdmin: boolean,
+		queries: [
+			{
+				query: 'Query 1',		// by user
+				latitude: 12.345678,	// counted by Map
+				longtitude: 123.456789,	// counted by Map
+				radius: '5 km',			// by user?
+				date: new Date(),		// counted
+				user: userId			// number
+			}
+		]
+	}
+]
+
+adminInterface: {
+	footerText: 'string' // text with HTML tags
+	hd: 'Header h1',
+	searchPlaceholder: 'Type a venue name here',
+	exploredRegion:	explored region (Kyiv, London, Tokyo ...),
+	exportBtnText: 'Export CSV',
+	venuesColNames: ['Name', 'City', 'Street Address', 'Latitude', 'Longtitude']
+}

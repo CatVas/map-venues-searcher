@@ -16,71 +16,16 @@
 				<!-- /Queries table -->
 
 				<!-- Map & Search box -->
-				<section class="map">
-					<form class="f-1">
-						<div class="form-group">
-							<input class="form-control" type="text" name="search" placeholder="Type a venue name here">
-						</div>
-					</form><!-- f-1 -->
-
-					<div class="map-cont">
-						Here gonna be Google map
-					</div>
-				</section>
+				{{> MapSearch}}
 				<!-- /Map & Search box -->
 
 				<!-- Venues -->
-				<section class="venues">
-					<header class="venues-hd">
-						<button class="btn btn-default">Export CSV</button>
-						<h1>X venues</h1>
-					</header>
-
-					<table class="t-1 mod-1 table">
-						<tr>
-							<th>Name</th>
-							<th>City</th>
-							<th>Street Address</th>
-							<th class="text-right">Latitude</th>
-							<th class="text-right">Longtitude</th>
-						</tr>
-						<tr>
-							<td>Venue 1</td>
-							<td>Tokyo</td>
-							<td>Street Address 1</td>
-							<td class="text-right">12.3456789</td>
-							<td class="text-right">123.456789</td>
-						</tr>
-						<tr>
-							<td>Venue 2</td>
-							<td>Tokyo</td>
-							<td>Street Address 2</td>
-							<td class="text-right">12.3456789</td>
-							<td class="text-right">123.456789</td>
-						</tr>
-						<tr>
-							<td>Venue 3</td>
-							<td>Tokyo</td>
-							<td>Street Address 3</td>
-							<td class="text-right">12.3456789</td>
-							<td class="text-right">123.456789</td>
-						</tr>
-						<tr>
-							<td>Venue 4</td>
-							<td>Tokyo</td>
-							<td>Street Address 4</td>
-							<td class="text-right">12.3456789</td>
-							<td class="text-right">123.456789</td>
-						</tr>
-					</table>
-				</section>
+				{{> Venues}}
 				<!-- /Venues -->
 
-				<footer class="footer row">
-					<div class="col-xs-12">
-						<p class="text-center">Copyright &copy; 2015. All rights reserved.<br/>Made by Catvas</p>
-					</div>
-				</footer><!-- footer -->
+				<!-- Footer -->
+				{{> Footer}}
+				<!-- /Footer -->
 			</div>
 		</div>
 	</div><!-- wrap -->

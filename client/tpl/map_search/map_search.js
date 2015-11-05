@@ -1,0 +1,1 @@
+Template.MapSearch.helpers({});
