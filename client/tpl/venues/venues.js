@@ -1,5 +1,9 @@
-var btnText = 'Export CSV',
-	colNames = ['Name', 'City', 'Street Address', 'Latitude', 'Longtitude'],
+var fromInterface = TplInterface.findOne({}, {
+		fields: {
+			exportBtnText: 1,
+			venuesColNames: 1
+		}
+	}),
 	venues = [
 		{
 			name: 'Venue 1',
@@ -32,11 +36,15 @@ var btnText = 'Export CSV',
 	];
 
 Template.Venues.helpers({
-	btnText: btnText,
+	btnText: function(){
+		return fromInterface.exportBtnText;
+	},
 	hdText: function(){
 		return venues.length + ' venues';
 	},
-	colNames: colNames,
+	colNames: function(){
+		return fromInterface.venuesColNames;
+	},
 	isTextRight: function(i){
 		return i > 2;
 	},

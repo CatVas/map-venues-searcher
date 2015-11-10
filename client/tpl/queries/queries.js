@@ -20,29 +20,22 @@ function hhmm(date){
 	return hh + ':' + mm;
 }
 
-var queries = [
-	{
-		query: 'Query 1',
-		latitude: 12.345678,
-		longtitude: 123.456789,
-		radius: '5 km',
-		date: new Date('2015-09-23')
-	},
-	{
-		query: 'Query 2',
-		latitude: 12.345678,
-		longtitude: 123.456789,
-		radius: '6 km',
-		date: new Date('2015-09-24')
-	},
-	{
-		query: 'Query 3',
-		latitude: 12.345678,
-		longtitude: 123.456789,
-		radius: '7 km',
-		date: new Date('2015-09-25')
+var queries = QueriesCol.find();
+
+Template.Queries.events({
+	'click .t-1-out': function(ev, tpl){
+		//var _id = ev.target.getAttribute('data-query-id');
+		var _id = this.queryId;
+
+		QueriesCol.remove(_id, function(err, removed){
+			if(err){
+				console.log('Bad query removing (_id: "' + _id + '")');
+			}
+
+			console.log('Removed ' + removed + ' queries: _id: "' + _id + '"');
+		});
 	}
-];
+});
 
 Template.Queries.helpers({
 	query: function(){
@@ -50,6 +43,7 @@ Template.Queries.helpers({
 
 		queries.forEach(function(item, i, arr){
 			res.push({
+				queryId: item._id,
 				query: item.query,
 				latitude: item.latitude,
 				longtitude: item.longtitude,
