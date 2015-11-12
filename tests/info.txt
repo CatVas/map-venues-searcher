@@ -1,3 +1,9 @@
+https://atmospherejs.com/dburles/google-maps - GoogleMaps API
+https://atmospherejs.com/oleh/foursquare - search places with Foursquare API
+
+--- Globals ---
+MapInit
+
 --- Templates ---
 Footer
 Header

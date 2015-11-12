@@ -1,22 +1,16 @@
-var melbourne = {
-		lng: 144.9631,
-		lat: -37.8136
-	},
-	tokyo = {
-		lng: 139.7513889,
-		lat: 35.685
-	};
-
-var lng = tokyo.lng,
-	lat = tokyo.lat,
-	mapZoom = 11;
+MapInit = {
+	placeName: 'Tokyo',
+	lng: 139.7513889,
+	lat: 35.685,
+	zoom: 11
+}
 
 Template.Map.helpers({
 	gMapOptions: function(){
 		if( GoogleMaps.loaded() ){
 			return {
-				center: new google.maps.LatLng(lat, lng),
-				zoom: mapZoom
+				center: new google.maps.LatLng(MapInit.lat, MapInit.lng),
+				zoom: MapInit.zoom
 			};
 		}
 	}
