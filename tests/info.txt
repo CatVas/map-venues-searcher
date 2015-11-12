@@ -21,8 +21,8 @@ QueriesCol: [
 	{
 		query: 'Query 1',		// by user
 		region: 'Tokyo'			// by user from the map?
-		latitude: 12.345678,	// counted by Map
-		longtitude: 123.456789,	// counted by Map
+		latitude: 12.345678,	// counted by the Foursquare
+		longtitude: 123.456789,	// counted by the Foursquare
 		radius: '5 km',			// by user from the map?
 		date: new Date(),		// counted
 		userId: userId			// number

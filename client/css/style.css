@@ -127,6 +127,9 @@ td, th {
 .map .f-1 {
 	margin: 0 0 1em;
 }
+.map-cont {
+	height: 400px;
+}
 
 /*--- Venues ---*/
 .venues h1 {
