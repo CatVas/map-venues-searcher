@@ -20,8 +20,6 @@ function hhmm(date){
 	return hh + ':' + mm;
 }
 
-var queries = QueriesCol.find();
-
 Template.Queries.events({
 	'click .t-1-out': function(ev, tpl){
 		//var _id = ev.target.getAttribute('data-query-id');
@@ -41,7 +39,7 @@ Template.Queries.helpers({
 	query: function(){
 		var res = [];
 
-		queries.forEach(function(item, i, arr){
+		QueriesCol.find().forEach(function(item, i, arr){
 			res.push({
 				queryId: item._id,
 				query: item.query,

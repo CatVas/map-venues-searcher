@@ -2,7 +2,7 @@ https://atmospherejs.com/dburles/google-maps - GoogleMaps API
 https://atmospherejs.com/oleh/foursquare - search places with Foursquare API
 
 --- Globals ---
-MapInit
+MapInit (gets the value from the TplInterface collection).
 
 --- Templates ---
 Footer
@@ -25,13 +25,15 @@ Users: [
 
 QueriesCol: [
 	{
-		query: 'Query 1',		// by user
-		region: 'Tokyo'			// by user from the map?
-		latitude: 12.345678,	// counted by the Foursquare
-		longtitude: 123.456789,	// counted by the Foursquare
-		radius: '5 km',			// by user from the map?
-		date: new Date(),		// counted
-		userId: userId			// number
+		query: 'Query 1',			// by user
+		region: 'Tokyo',			// by user from the map?
+		name: 'venueName',		// Foursquare
+		address: 'venue address',	// Foursquare
+		latitude: 12.345678,		// Foursquare
+		longtitude: 123.456789,		// Foursquare
+		radius: '5 km',				// by user or from Foursquare?
+		date: new Date(),			// counted
+		userId: userId				// number
 	}
 ]
 
@@ -39,7 +41,13 @@ TplInterface: {
 	footerText: 'string' // text with HTML tags
 	hd: 'Header h1',
 	searchPlaceholder: 'Type a venue name here',
-	exploredRegion:	explored region (Kyiv, London, Tokyo ...),
+	exploredRegion:	explored region (Kyiv, London, Tokyo ...), // add MapInit here
 	exportBtnText: 'Export CSV',
-	venuesColNames: ['Name', 'City', 'Street Address', 'Latitude', 'Longtitude']
+	venuesColNames: ['Name', 'City', 'Street Address', 'Latitude', 'Longtitude'],
+	mapInit: {
+		placeName: 'Tokyo',
+		lng: 139.7513889,
+		lat: 35.685,
+		zoom: 11
+	}
 }

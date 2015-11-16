@@ -3,40 +3,63 @@ Template.SearchForm.events({
 		ev.preventDefault();
 
 		var input = $(ev.target).find('[name="search"]'),
-			insertDoc = {
-				query: input.val(),
-				region: 'Tokyo',			// by user from the map?
-				latitude: 12.345678,		// counted by Map
-				longtitude: 123.456789,		// counted by Map
-				radius: '5 km',				// by user from the map?
-				date: new Date(),			// counted
-				userId: 123					// number userId
-			},
-			isDocPresent = QueriesCol.find({
-				query: insertDoc.query,
-				region: insertDoc.region,
-				latitude: insertDoc.latitude,
-				longtitude: insertDoc.longtitude,
-				radius: {
-					$gte: insertDoc.radius
-				}
-			}).count();
+			userQuery = input.val() + '';
 
 		// Clear the form field after the form sending
 		input.val('');
 
-		// Whether the user asked the question with similar parameters
-		if(isDocPresent){
-			console.log('Already similar docs: ' + isDocPresent);
-			return false;
-		}
+		Foursquare.find({
+				ll: MapInit.lat + ',' + MapInit.lng,
+				query: userQuery
+			}, function(err, res){
+				if(err){
+					throw 'Bad venues. Error: ' + err;
+				}
 
-		var queryId = QueriesCol.insert(insertDoc, function(err, res){
-			if(err){
-				throw err;
-			}
+				var venues = res.response.venues,
+					insertDoc,
+					isDocPresent = 0,
+					queryId;
+				//console.dir(venues);
 
-			console.log('The user query inserted. _id = ' + queryId);
+				venues.forEach(function(item, i, arr){
+					insertDoc = {
+						query: userQuery,									// by user
+						region: MapInit.placeName,							// by user from the map?
+						name: item.name,									// Foursquare
+						address: item.location.address,						// Foursquare
+						latitude: item.location.lat,						// Foursquare
+						longtitude: item.location.lng,						// Foursquare
+						radius: (item.location.distance / 1000) + ' km',	// by user or from Foursquare?
+						date: new Date(),									// counted
+						userId: 123											// number userId
+					};
+					isDocPresent = QueriesCol.find({
+						query: insertDoc.query,
+						region: insertDoc.region,
+						latitude: insertDoc.latitude,
+						longtitude: insertDoc.longtitude,
+						radius: {
+							$gte: insertDoc.radius
+						}
+					}).count();
+					//console.log(isDocPresent);
+
+					// If the user asked the similar query
+					if(isDocPresent){
+						console.log('Already similar docs: ' + isDocPresent++);
+						return false;
+					}
+
+					// Handling unique queries
+					queryId = QueriesCol.insert(insertDoc, function(err, res){
+						if(err){
+							throw err;
+						}
+
+						console.log('The user query inserted. _id = ' + queryId);
+					});
+				});
 		});
 
 		return false;
