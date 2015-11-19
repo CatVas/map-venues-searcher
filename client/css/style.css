@@ -65,11 +65,24 @@ td, th {
 	padding: 0.5em;
 }
 
-.t-1 tr:nth-child(odd) {
-	background: #eee;
+.t-1 {
+	margin: 0;
+}
+.t-1 tr {
+	cursor: pointer;
 }
 .t-1 td {
+	border-top: 1px solid #ccc;
 	text-align: right;
+}
+.t-1 tr:first-child td {
+	border-top: 0 none;
+}
+.t-1 tr:hover td {
+	background: #FCFFB7;
+}
+.t-1 tr.active td {
+	background: #C4EFCF;
 }
 .t-1 .t-1-query {
 	font-weight: bold;
@@ -77,6 +90,13 @@ td, th {
 }
 .t-1 .t-1-out {
 	cursor: pointer;
+}
+
+.t-1.mod-1 tr {
+	cursor: auto;
+}
+.t-1.mod-1 tr:nth-child(odd) {
+	background: #eee;
 }
 .t-1.mod-1 td {
 	text-align: left;
@@ -90,15 +110,20 @@ td, th {
 	font-weight: bold;
 	padding: 0.2em 0.5em;
 }
+.t-1.mod-1 tr:hover td {
+	background: none;
+}
 
 /*--- Footer ---*/
 .footer {
+	border-top: 1px solid #000;
 	padding: 0.8em 0;
 }
 
 /*--- Header ---*/
 .header {
-	height: 70px;
+	border-bottom: 1px solid #000;
+	height: 80px;
 	margin-bottom: 2em;
 }
 .header h1 {
@@ -119,6 +144,14 @@ td, th {
 .queries {
 	margin:0 0 2em;
 }
+.queries-scroll {
+	/*height: 161px;*/
+	max-height: 179px;
+	overflow: scroll;
+}
+.queries-scroll .queries-scroll-in {
+	margin-right: 0.5em;
+}
 
 /*--- Map ---*/
 .map {
@@ -132,6 +165,9 @@ td, th {
 }
 
 /*--- Venues ---*/
+.venues {
+	margin: 0 0 2em;
+}
 .venues h1 {
 	font-size: 2em;
 	font-weight: bold;
@@ -152,6 +188,16 @@ td, th {
 .venues .btn {
 	float: right;
 }
+.venues-no {
+	color: #f00;
+	padding: 0 0 1.5em;
+	text-align: center;
+}
+.venues-scroll {
+	overflow: scroll;
+	max-height: 358px;
+}
+.venues-scroll .venues-scroll-in {}
 
 /*--- Wrap ---*/
 .app {

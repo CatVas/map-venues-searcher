@@ -1,26 +1,42 @@
 <template name="Venues">
 	<section class="venues">
+	{{#if noSuchVenues}}
+		<div class="venues-no">
+			<p>Sorry, there are no "{{userQuery}}" venues in {{region}}.</p>
+		</div>
+	{{/if}}
+
+	{{#if venues}}
 		<header class="venues-hd">
 			<button class="btn btn-default">{{btnText}}</button>
 			<h1>{{hdText}}</h1>
 		</header>
 
-		<table class="t-1 mod-1 table">
-			<tr>
-				{{#each name in colNames}}
-					<th class="{{#if (isTextRight @index)}}text-right{{/if}}">{{name}}</th>
-				{{/each}}
-			</tr>
-
-			{{#each venues}}
-				<tr>
-					<td>{{name}}</td>
-					<td>{{city}}</td>
-					<td>{{address}}</td>
-					<td class="text-right">{{latitude}}</td>
-					<td class="text-right">{{longtitude}}</td>
-				</tr>
-			{{/each}}
-		</table>
+		<div class="venues-scroll">
+			<div class="venues-scroll-in">
+				<table class="t-1 mod-1 table">
+					<tr>
+						{{#each name in colNames}}
+							<th class="{{#if (isTextRight @index)}}text-right{{/if}}">{{name}}</th>
+						{{/each}}
+					</tr>
+					
+					{{#each venues}}
+						<tr>
+							<td>{{name}}</td>
+							<td>{{region}}</td>
+							<td>{{address}}</td>
+							<td class="text-right">{{latitude}}</td>
+							<td class="text-right">{{longtitude}}</td>
+						</tr>
+					{{/each}}
+				</table>
+			</div>
+		</div>
+	{{else}}
+		<div class="venues-no">
+			<p>Please, type something into the search field above the map.</p>
+		</div>
+	{{/if}}
 	</section>
 </template>

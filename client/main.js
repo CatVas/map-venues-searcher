@@ -1,3 +1,8 @@
-Meteor.subscribe('queriesCol');
+/*--- Session reset ---*/
+if( Session.get('noSuchVenues') ){
+	Session.set('noSuchVenues', undefined);
+}
 
-Meteor.subscribe('tplInterface');
+/*--- Subscriptions ---*/
+subsQueriesCol = Meteor.subscribe('queriesCol');
+subsTplInterface = Meteor.subscribe('tplInterface');

@@ -5,14 +5,6 @@ MapInit = {
 	zoom: 11
 }
 
-/*
-MapInit = TplInterface.findOne({}, {
-	fields: {
-		mapInit: 1
-	}
-});
-*/
-
 Template.Map.helpers({
 	gMapOptions: function(){
 		if( GoogleMaps.loaded() ){
