@@ -1,17 +1,28 @@
 /*--- JSSolutions ---*/
 
-Секретна сторінка реєстрації адміном на сайті;
+Секретна сторінка реєстрації адміном на сайті:
+	- розробити дизайн;
 	- може бути лише ОДИН адмін.
 
 Адмінка:
+	- розробити дизайн;
+	- доступна лише зареєстрованим користувачам із правами адміна;
 	- форма задання написів, заголовків у шапці/підвалі;
 	- список зареєстрованих користувачів;
 	- редагування зареєстрованих користувачів (видалення, створення).
 
-Sign in via Google.
-	- головна сторінка для незареєстрованих користувачів (Міні-лендінг із коротким описом);
-	- записи в базі даних для кожного користувача;
-	- sign out.
+Сторінка профілю:
+	- розробити дизайн;
+	- для всіх зареєстрованих користувачів;
+	- можливість редагувати свій емейл, пароль, ім'я;
+	- можливість обирати місцезнаходження з випадного списку;
+
+Сторінка повідомлень ("мессажник"):
+	- розробити дизайн;
+	- вкладка "Мої повідомлення";
+	- вкладка "Стрічка повідомлень" (від усі);
+	- User can broadcast message and all users within his current location will see it;
+	- In case user changes his location his old messages will remain visible to previous location and won't move to a new one.
 
 Show the venues on the Google Map.
 
@@ -21,3 +32,7 @@ Export the venues as CSV (columns: Name, City, Street Address, Latitude, Longitu
 
 
 /*--- Keenethics ---*/
+Messaging web-app on meteor.js:
+
+An app should be pushed to a git-repo and deployed somewhere (possibly to free meteor.com dev hosting).
+It's not necessary that app has awesome design, but it should be usable.

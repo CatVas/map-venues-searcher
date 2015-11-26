@@ -4,7 +4,7 @@
 function getVenues(param){
 	if(subsQueriesCol.ready()){
 		var queryId = Session.get('queryId'),
-			qFind = queryId ? {_id: queryId} : {},
+			qFind = queryId ? {_id: queryId, userId: Meteor.userId()} : {userId: Meteor.userId()},
 			venues = QueriesCol.findOne(qFind, {
 				'places': 1,
 				'query': 1,

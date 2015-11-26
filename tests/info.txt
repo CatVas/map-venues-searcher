@@ -1,6 +1,11 @@
 https://atmospherejs.com/dburles/google-maps - GoogleMaps API
 https://atmospherejs.com/oleh/foursquare - search places with Foursquare API
 
+--- Routing ---
+/ - Welcome page (unregistered/unsigned users).
+/userId (/userNick) - the result page with user's queries.
+/error/nickexists - if the userNick is already registered.
+
 --- Globals ---
 Functions (different functions library).
 MapInit (gets the value from the TplInterface collection).
@@ -10,7 +15,13 @@ noSuchVenues
 queryId
 userQuery
 
+--- Layouts ---
+layoutMain
+layoutPage
+layoutWelcome
+
 --- Templates ---
+Descript
 Footer
 Header
 Map

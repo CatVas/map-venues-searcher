@@ -9,6 +9,15 @@ Template.Queries.events({
 			trPrev = trPar.prev(),
 			removingError;
 
+		Meteor.call('removeQuery', _id, function(err, res){
+			if(err){
+				removingError = err;
+				console.log('Client: Bad query removing (_id: "' + _id + '")');
+			}
+
+			console.log('Client: Removed ' + res + ' queries: _id: "' + _id + '"');
+		});
+		/*
 		QueriesCol.remove(_id, function(err, removed){
 			if(err){
 				removingError = err;
@@ -17,6 +26,7 @@ Template.Queries.events({
 
 			console.log('Removed ' + removed + ' queries: _id: "' + _id + '"');
 		});
+		*/
 
 		// Hide the "no such venues in the region" message
 		Session.set('noSuchVenues', undefined);
@@ -51,7 +61,7 @@ Template.Queries.helpers({
 	query: function(){
 		var res = [];
 
-		QueriesCol.find().forEach(function(item, i, arr){
+		QueriesCol.find({userId: Meteor.userId()}).forEach(function(item, i, arr){
 			res.push({
 				queryId: item._id,
 				query: item.query,

@@ -1,0 +1,17 @@
+<template name="layoutMain">
+	<div class="wrap">
+		<div class="app">
+			<div class="container-fluid">
+				<!-- Header -->
+				{{> Header}}
+				<!-- /Header -->
+
+				{{> yield}}
+
+				<!-- Footer -->
+				{{> Footer}}
+				<!-- /Footer -->
+			</div>
+		</div>
+	</div><!-- wrap -->
+</template>

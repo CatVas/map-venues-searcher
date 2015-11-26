@@ -29,7 +29,7 @@ Template.SearchForm.events({
 						query: userQuery,			// by user
 						region: MapInit.placeName,	// by user from the map?
 						date: new Date(),			// counted
-						userId: 123,				// number userId
+						userId: Meteor.userId(),	// number userId
 						places: []
 					};
 
@@ -41,6 +41,7 @@ Template.SearchForm.events({
 				}
 
 				var isDocPresent = QueriesCol.find({
+						userId: Meteor.userId(),
 						query: insertDoc.query,
 						region: insertDoc.region
 					}).count(),
@@ -55,15 +56,26 @@ Template.SearchForm.events({
 				// Take the venues
 				venues.forEach(function(item, i, arr){
 					insertDoc.places.push({
-						name: item.name,									// Foursquare
-						address: item.location.address,						// Foursquare
-						latitude: item.location.lat.toFixed(3),						// Foursquare
-						longtitude: item.location.lng.toFixed(3),						// Foursquare
-						radius: (item.location.distance / 1000).toFixed(2) + ' km',	// by user or from Foursquare?
+						name: item.name || '',												// Foursquare
+						address: item.location.address || '',								// Foursquare
+						latitude: item.location.lat.toFixed(3) || '',						// Foursquare
+						longtitude: item.location.lng.toFixed(3) || '',						// Foursquare
+						radius: (item.location.distance / 1000).toFixed(2) + ' km' || ''	// by user or from Foursquare?
 					});
 				});
 
 				// Handling unique queries
+				Meteor.call('insertQuery', insertDoc, function(err, res){
+					if(err){
+						throw err;
+					}
+
+					if(!Session.get('queryId')){
+						Session.set('queryId', res);
+					}
+					console.log('Client: The query is inserted. _id = ' + res);
+				});
+				/*
 				queryId = QueriesCol.insert(insertDoc, function(err, res){
 					if(err){
 						throw err;
@@ -75,6 +87,7 @@ Template.SearchForm.events({
 					}
 					console.log('The user query inserted. _id = ' + queryId);
 				});
+				*/
 			}
 		);
 

@@ -132,6 +132,10 @@ td, th {
 	margin:0.7em 0 0 70px;
 	text-align: center;
 }
+.header .auth {
+	font-size: 1.4em;
+	margin: 32px 0 0;
+}
 .logo {
 	background: url('/img/logo.png') no-repeat;
 	float: left;
@@ -139,6 +143,19 @@ td, th {
 	margin: 20px 0 0 0;
 	width: 50px;
 }
+
+
+/*--- Descript ---*/
+.descript {
+	margin: 0 0 2em;
+	text-align: center;
+}
+.descript p {
+	color: #FF0000;
+	font-size: 2em;
+	margin: 0;
+}
+
 
 /*--- Queries ---*/
 .queries {

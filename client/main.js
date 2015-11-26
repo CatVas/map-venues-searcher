@@ -6,3 +6,8 @@ if( Session.get('noSuchVenues') ){
 /*--- Subscriptions ---*/
 subsQueriesCol = Meteor.subscribe('queriesCol');
 subsTplInterface = Meteor.subscribe('tplInterface');
+
+/*--- Accounts config ---*/
+Accounts.ui.config({
+	passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
+});

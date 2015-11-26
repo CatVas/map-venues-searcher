@@ -1,6 +1,6 @@
 <template name="Header">
 	<header class="header row">
-		<div class="col-xs-8">
+		<div class="col-xs-7">
 			<a href="#">
 				<span class="logo"></span>
 			</a>
@@ -8,8 +8,10 @@
 			<h1>{{hd}}</h1>
 		</div>
 
-		<div class="col-xs-4">
-			<div class="auth">Auth</div>
+		<div class="col-xs-5">
+			<div class="auth">
+				{{> loginButtons}}
+			</div>
 		</div>
 	</header><!-- header -->
 </template>
