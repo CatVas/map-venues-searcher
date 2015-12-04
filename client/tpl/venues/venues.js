@@ -44,7 +44,7 @@ Template.Venues.onRendered(function(){
 		Tracker.autorun(function(){
 			var trActive = tpl.$('.t-1 tr.active');
 
-			if( queryId != Session.get('queryId') && trActive.length){
+			if( queryId != Session.get('queryId') && trActive.length > 0){
 				trActive.removeClass('active');
 				queryId = Session.get('queryId');
 				//console.log(trActive.length);
@@ -52,5 +52,5 @@ Template.Venues.onRendered(function(){
 		});
 	}
 	/*--- /Toggle the active table rows ---*/
-	
+
 });
