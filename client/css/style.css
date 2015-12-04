@@ -93,7 +93,7 @@ td, th {
 }
 
 .t-1.mod-1 tr {
-	cursor: auto;
+	/*cursor: auto;*/
 }
 .t-1.mod-1 tr:nth-child(odd) {
 	background: #eee;
@@ -111,7 +111,12 @@ td, th {
 	padding: 0.2em 0.5em;
 }
 .t-1.mod-1 tr:hover td {
-	background: none;
+	/*background: none;*/
+	background: #FFE3D1;
+}
+.t-1.mod-1 tr.active td {
+	/*background: none;*/
+	background: #FFBD8E;
 }
 
 /*--- Footer ---*/

@@ -11,6 +11,7 @@ Functions (different functions library).
 MapInit (gets the value from the TplInterface collection).
 
 --- Session ---
+activeMarkerLatLng
 noSuchVenues
 queryId
 userQuery

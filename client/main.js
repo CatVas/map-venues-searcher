@@ -2,6 +2,9 @@
 if( Session.get('noSuchVenues') ){
 	Session.set('noSuchVenues', undefined);
 }
+if( Session.get('activeMarkerLatLng') ){
+	Session.set('activeMarkerLatLng', undefined);
+}
 
 /*--- Subscriptions ---*/
 subsQueriesCol = Meteor.subscribe('queriesCol');

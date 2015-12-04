@@ -75,19 +75,6 @@ Template.SearchForm.events({
 					}
 					console.log('Client: The query is inserted. _id = ' + res);
 				});
-				/*
-				queryId = QueriesCol.insert(insertDoc, function(err, res){
-					if(err){
-						throw err;
-					}
-
-					// Add queryId into the session to show the places in the venues table below
-					if(!Session.get('queryId')){
-						Session.set('queryId', queryId);
-					}
-					console.log('The user query inserted. _id = ' + queryId);
-				});
-				*/
 			}
 		);
 
