@@ -41,7 +41,7 @@ Template.Venues.onRendered(function(){
 	var queryId = null;
 
 	if( Meteor.userId() ){
-		Tracker.autorun(function(){
+		tpl.autorun(function(){
 			var trActive = tpl.$('.t-1 tr.active');
 
 			if( queryId != Session.get('queryId') && trActive.length > 0){
