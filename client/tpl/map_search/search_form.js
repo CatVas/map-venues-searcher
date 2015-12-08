@@ -73,7 +73,7 @@ Template.SearchForm.events({
 					if(!Session.get('queryId')){
 						Session.set('queryId', res);
 					}
-					console.log('Client: The query is inserted. _id = ' + res);
+					//console.log('Client: The query is inserted. _id = ' + res);
 				});
 			}
 		);

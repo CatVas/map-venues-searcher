@@ -1,9 +1,18 @@
+/*
 MapInit = {
 	placeName: 'Tokyo',
 	lng: 139.7513889,
 	lat: 35.685,
 	zoom: 11
-}
+};
+MapInit = {
+	placeName: 'Selkirk',
+	lng: -2.838524,
+	lat: 55.550658,
+	zoom: 12
+};
+*/
+MapInit = null;
 
 Template.Map.onRendered(function(){
 	// Load the Google Maps API
@@ -12,7 +21,9 @@ Template.Map.onRendered(function(){
 
 Template.Map.helpers({
 	gMapOptions: function(){
-		if( GoogleMaps.loaded() ){
+		if( GoogleMaps.loaded() && subsTplInterface.ready() ){
+			MapInit = TplInterface.findOne().mapInit;
+
 			return {
 				center: new google.maps.LatLng(MapInit.lat, MapInit.lng),
 				zoom: MapInit.zoom

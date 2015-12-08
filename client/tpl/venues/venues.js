@@ -31,6 +31,20 @@ Template.Venues.events({
 		$(ev.target).parents('tr:first').addClass('active').siblings('.active').removeClass('active');
 
 		Session.set('activeMarkerLatLng', this.latitude + ',' + this.longtitude);
+	},
+
+	'click .venues-hd .btn': function(ev, tpl){
+		var queryId = Session.get('queryId');
+		var userId = Meteor.userId();
+		var fileName = (new Date().toString()) + '-export.csv';
+		//console.log('queryId: ' + queryId + '; userId: ' + userId + '; fileName: ' + fileName);
+
+		Meteor.call('downloadVenuesCSV', queryId, userId, function(err, fileContent){
+			if(fileContent){
+				var blob = new Blob([fileContent], {type: 'text/plain;charset=utf-8'});
+				saveAs(blob, fileName);
+			}
+		});
 	}
 });
 
@@ -47,7 +61,6 @@ Template.Venues.onRendered(function(){
 			if( queryId != Session.get('queryId') && trActive.length > 0){
 				trActive.removeClass('active');
 				queryId = Session.get('queryId');
-				//console.log(trActive.length);
 			}
 		});
 	}
