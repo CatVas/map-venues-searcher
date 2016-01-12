@@ -1,6 +1,8 @@
 # Map Venues Searcher
 Application for finding interesting places on the Google map. By default it is centered on Tokyo.
 
+Available at http://catvas-map-searcher2.meteor.com
+
 To start using the app, first please register or sign up with your existing Google account.
 
 After signing up you'll be redirected to your personal page, where all your queries will appear.
